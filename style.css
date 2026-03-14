@@ -15,61 +15,112 @@ body {
     color: var(--tu-blue);
 }
 
-/* Navbar */
+
+/* --- Navbar Base --- */
 .navbar {
-    background: var(--tu-blue);
-    padding: 15px 0;
+    background: #001f3f; 
+    height: 70px;
+    display: flex;
+    align-items: center;
     position: sticky;
     top: 0;
     z-index: 1000;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
 }
 
 .nav-container {
+    width: 100%;
     max-width: 1200px;
-    margin: auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    margin: 0 auto;
     padding: 0 20px;
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: space-between !important;
+    align-items: center !important;
 }
 
 .nav-logo {
-    color: var(--tu-gold);
-    font-family: 'Orbitron', sans-serif;
-    font-size: 1.6rem;
+    color: #ffcc00;
+    font-size: 1.4rem;
     font-weight: bold;
-}
-
-.nav-links {
-    list-style: none;
-    display: flex;
-    gap: 30px;
+    text-decoration: none;
     margin: 0;
 }
 
-.nav-links a {
-    color: var(--text-white);
-    text-decoration: none;
-    font-weight: 500;
-    transition: 0.3s;
+/* --- Mobile Menu Toggle (သင့် Code အတိုင်း မထိပါဘူး) --- */
+.menu-toggle {
+    display: block !important;
+    color: #ffcc00;
+    font-size: 1.8rem;
+    cursor: pointer;
+    margin: 0;
 }
 
-.nav-links a:hover {
-    color: var(--tu-gold);
+/* --- Desktop View (Screen 769px ထက်ကြီးလျှင် ပြင်ဆင်ချက်) --- */
+@media (min-width: 769px) {
+    .menu-toggle { 
+        display: none !important; /* Desktop မှာ အခြစ်ကို ဖျောက်မည် */
+    }
+
+    .nav-links {
+        display: flex !important; /* Menu တွေကို ဘေးတိုက်ပြန်ဖော်မည် */
+        flex-direction: row !important;
+        list-style: none;
+        gap: 30px;
+        position: static !important; /* Mobile က position တွေကို ဖျက်ရန် */
+        background: transparent !important;
+        padding: 0 !important;
+        width: auto !important;
+    }
+
+    .nav-links li {
+        margin: 0;
+    }
+
+    .nav-links a {
+        color: white;
+        text-decoration: none;
+        font-weight: 500;
+    }
 }
 
-/* Header */
+/* --- Mobile View (၇၆၈ အောက် - သင့် Code အတိုင်း ဘာမှမပြင်ပါ) --- */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none; 
+        position: absolute;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        background: #001f3f;
+        flex-direction: column;
+        padding: 20px;
+        text-align: center;
+        list-style: none;
+    }
+
+    .nav-links.active {
+        display: flex !important;
+    }
+    
+    .nav-links a {
+        color: white;
+        text-decoration: none;
+        display: block;
+        padding: 10px;
+    }
+}
+
+/* Header https://images.unsplash.com/photo-1562774053-701939374585?w=1200*/
 .main-header {
     height: 50vh;
     background: linear-gradient(rgba(0, 35, 71, 0.75), rgba(0, 35, 71, 0.75)),
-                url('https://images.unsplash.com/photo-1562774053-701939374585?w=1200') center/cover;
+                url('IMG_20260314_212053_364.jpg') center/cover;
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
+    
 }
-
 .main-header h1 {
     color: var(--tu-gold);
     font-size: 2.8rem;
@@ -119,6 +170,66 @@ body {
     transform: translateY(-3px); /* အပေါ်ကို အနည်းငယ် ကြွတက်လာမယ့် effect */
     box-shadow: 0 8px 20px rgba(0, 31, 63, 0.3);
 }
+/* Filter ခလုတ်များ အားလုံးအတွက် Container */
+.filter-wrapper {
+    width: 100%;
+    padding: 20px 0;
+    background: transparent;
+}
+
+.filter-container {
+    display: flex;
+    gap: 10px;
+    justify-content: center; /* Desktop မှာ အလယ်မှာထားမည် */
+    flex-wrap: wrap; /* Desktop မှာ နေရာမဆံ့ရင် အောက်ဆင်းမည် */
+}
+
+/* --- Filter Wrapper --- */
+.filter-wrapper {
+    width: 100%;
+    padding: 30px 0;
+}
+
+.filter-container {
+    display: flex;
+    margin: 0 auto;
+    max-width: 1000px;
+}
+
+/* --- Mobile View (၇၆၈ အောက်) - အပေါ်အောက်စီမည် --- */
+@media (max-width: 768px) {
+    .filter-container {
+        flex-direction: column; /* အပေါ်အောက်စီရန် */
+        align-items: center; /* အလယ်မှာထားရန် */
+        gap: 12px; /* ခလုတ်တစ်ခုချင်းစီကြား အကွာအဝေး */
+        padding: 0 20px;
+    }
+
+    .filter-container .btn {
+        width: 100%; /* ဖုန်းမှာ ခလုတ်ကို အပြည့်ထားလျှင် ပိုလှပါသည် */
+        max-width: 300px; /* ဒါပေမယ့် အရမ်းကြီးမသွားအောင် ကန့်သတ်ထားသည် */
+        text-align: center;
+        padding: 12px;
+        font-size: 1rem;
+    }
+}
+
+/* --- Desktop View (၇၆၉ အထက်) - ဘေးတိုက်စီမည် --- */
+@media (min-width: 769px) {
+    .filter-container {
+        flex-direction: row; /* ဘေးတိုက်စီရန် */
+        justify-content: center; /* အလယ်မှာ စုထားရန် */
+        flex-wrap: wrap; /* နေရာမလောက်ရင် အောက်ဆင်းရန် */
+        gap: 15px;
+    }
+
+    .filter-container .btn {
+        width: auto;
+        padding: 10px 25px;
+    }
+}
+
+
 
 /* Project Grid */
 .container {
@@ -227,7 +338,9 @@ body {
     border-radius: 12px;
     padding: 30px;
     box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-}
+    }
+
+
 
 .detail-card h3 {
     color: #ffcc00; /* ရွှေရောင်ခေါင်းစဉ် */
@@ -321,4 +434,4 @@ body {
     grid-template-columns: 1fr 1fr; /* Desktop တွင် ဘေးချင်းယှဉ် */
     gap: 25px;
     align-items: stretch; /* ကတ်ပြားနှစ်ခု အမြင့်တူစေရန် */
-}
+    }
