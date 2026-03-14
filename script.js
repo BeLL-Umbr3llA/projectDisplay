@@ -86,6 +86,7 @@ function filterSelection(m) {
   event.target.classList.add('active');
 }
 
+
 function loadProjectDetails(id) {
   const p = allProjects.find(item => item.id === id);
   if (!p) return;
@@ -104,3 +105,23 @@ function loadProjectDetails(id) {
   const processList = document.getElementById('p-process');
   processList.innerHTML = p.process.map(step => `<li>${step}</li>`).join('');
 }
+
+
+document.addEventListener('DOMContentLoaded', () => {
+  const menuToggle = document.getElementById('mobile-menu');
+  const navLinks = document.querySelector('.nav-links');
+
+  if (menuToggle) {
+      menuToggle.addEventListener('click', (e) => {
+          e.stopPropagation(); // တခြားနေရာနှိပ်တာနဲ့ မရောအောင် တားခြင်း
+          navLinks.classList.toggle('active');
+      });
+  }
+
+  // Menu ပွင့်နေတုန်း တခြားနေရာနှိပ်ရင် ပြန်ပိတ်သွားအောင်လုပ်ခြင်း
+  document.addEventListener('click', () => {
+      if (navLinks.classList.contains('active')) {
+          navLinks.classList.remove('active');
+      }
+  });
+});
