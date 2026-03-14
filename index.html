@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="my">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TU Monywa | Engineering Projects</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">TU MONYWA</div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <header class="main-header">
+        <div class="header-overlay">
+            <h1>Technological University (Monywa)</h1>
+            <p>Final Year Engineering Research & Projects</p>
+        </div>
+    </header>
+
+    <div class="filter-wrapper">
+        <div class="filter-container">
+            <button class="btn active" onclick="filterSelection('all')">All Projects</button>
+            <button class="btn" onclick="filterSelection('civil')">Civil</button>
+            <button class="btn" onclick="filterSelection('ec')">EC</button>
+            <button class="btn" onclick="filterSelection('ep')">EP</button>
+            <button class="btn" onclick="filterSelection('mech')">Mechanical</button>
+            <button class="btn" onclick="filterSelection('it')">IT</button>
+        </div>
+    </div>
+
+    <main class="container" id="projectGrid"></main>
+
+    <section id="about" class="info-section">
+        <h2>About Our Projects</h2>
+        <div class="info-content">
+            <p>ဤစာမျက်နှာသည် နည်းပညာတက္ကသိုလ် (မုံရွာ) မှ ကျောင်းသားကျောင်းသူများ၏ လက်တွေ့အသုံးချ အင်ဂျင်နီယာဘာသာရပ်ဆိုင်ရာ ပရောဂျက်များကို စုစည်းဖော်ပြထားခြင်း ဖြစ်သည်။ ခေတ်မီနည်းပညာများနှင့် ဒေသန္တရလိုအပ်ချက်များကို ပေါင်းစပ်ကာ တီထွင်ဖန်တီးထားသော သုတေသနလုပ်ငန်းများ ဖြစ်ပါသည်။</p>
+        </div>
+    </section>
+
+    <section id="contact" class="info-section dark-footer">
+        <h2>Contact Information</h2>
+        <div class="contact-grid">
+            <p><i class="fas fa-university"></i> Technological University (Monywa), Sagaing, Myanmar</p>
+            <p><i class="fas fa-envelope"></i> info@tumonywa.edu.mm</p>
+            <p><i class="fas fa-phone"></i> +95 71 23456</p>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+    <script>window.onload = () => displayGrid(allProjects);</script>
+</body>
+</html>
