@@ -286,7 +286,36 @@ body {
     object-position: center;
     display: block;
 }
+/* --- Mobile View အတွက် အထူးပြင်ဆင်ချက် --- */
+@media (max-width: 768px) {
+    /* ၁။ Layout ကို တစ်တန်းတည်းဖြစ်အောင် ပြောင်းခြင်း */
+    .detail-grid {
+        grid-template-columns: 1fr !important; /* Column ၂ ခုကနေ ၁ ခုပဲ ထားပါမယ် */
+        gap: 20px;
+    }
 
+    /* ၂။ ပုံရဲ့ အမြင့်ကို ဖုန်းနဲ့ကိုက်အောင် ညှိခြင်း */
+    .project-image-preview {
+        height: 220px; /* ဖုန်းမှာ ပုံအရမ်းမရှည်နေအောင်ပါ */
+        margin-bottom: 10px;
+    }
+
+    /* ၃။ Header က စာလုံးအရွယ်အစားကို လျှော့ခြင်း */
+    .detail-header h1 {
+        font-size: 1.6rem;
+        margin-bottom: 20px;
+    }
+
+    /* ၄။ ကတ်ပြားတွေရဲ့ padding ကို နည်းနည်းလျှော့ခြင်း */
+    .detail-card {
+        padding: 20px;
+    }
+
+    /* ၅။ Container ဘေးကပ်မနေအောင် padding ထည့်ခြင်း */
+    .detail-container {
+        padding: 15px;
+    }
+}
 .detail-grid {
     display: grid;
     grid-template-columns: 1fr 1fr; /* Desktop တွင် ဘေးချင်းယှဉ် */
